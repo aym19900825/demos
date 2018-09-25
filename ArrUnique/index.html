@@ -34,27 +34,82 @@
             },
             methods:{
                 unique1(){
+                    let arr = this.arrData.split(',');
+                    let res = [arr[0]];
+                    
+                    //如果是不确定参数，需确定是否是数组
+                    // if(!Array.isArray(arr)){
+                    //     console.log('type error');
+                    //     return;
+                    // }
+
+                    for(let i = 1; i < arr.length; i++){
+                        let flag = true;
+                        for(let j = 0; j < res.length; j++){
+                            if(arr[i] === res[j]){
+                                flag = false;
+                            }
+                        }
+                        if(flag){
+                            res.push(arr[i]);
+                        }
+                    }
+
+                    this.result = res.join(',');
+                },
+                unique2(){
+                    let arr = this.arrData.split(',');
+                    let res = [];
+
+                    for(let i = 0; i < arr.length; i++){
+                        if(res.indexOf(arr[i]) === -1){
+                            res.push(arr[i]);
+                        }
+                    }
+
+                    this.result = res.join(',');
+                },
+                unique3(){
+                    let arr = this.arrData.split(',');
+                    let res = [];
+
+                    arr = arr.sort();
+                    for(let i = 0; i< arr.length; i++){
+                        if(arr[i] !== arr[i+1]){
+                            res.push(arr[i]);
+                        }
+                    }
+
+                    this.result = res.join(',');
+                },
+                unique4(){
+                    let arr = this.arrData.split(',');
+
+                    let res = [];
+                    let obj = {};
+                    for(let i = 0; i< arr.length; i++){
+                        if(!obj[arr[i]]){
+                            res.push(arr[i]);
+                            obj[arr[i]] = 1;
+                        }else{
+                            obj[arr[i]]++;
+                        }
+                    }
+
+                    this.result = res.join(',');
+                },
+                unique5(){
+                    let arr = this.arrData.split(',');
+
+                    this.result = [...new Set(arr)].join(',');
+                },
+                unique6(){
                     //Chrome,Firfox,Opera，Safari，包括微软的Edge,都是支持的，唯独IE系列不支持
                     let arr = this.arrData.split(',');
                     var set = new Set(arr);
                     //将set对象转化成数组，Array.from把类数组对象、可迭代对象转化为数组
                     this.result = Array.from(set).join(',');  
-                },
-                unique2(){
-
-                },
-                unique3(){
-
-                },
-                unique4(){
-
-                },
-                unique5(){
-
-                },
-                unique6(){
-
-                },
+                }
             }
         })
     </script>
