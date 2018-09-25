@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyVue</title>
+</head>
+<body>
+    <div id="demo">
+        <p>
+            <input type="text" v-model="arrData"/>
+            <button @click="unique1">方法一</button>
+            <button @click="unique2">方法二</button>
+            <button @click="unique3">方法三</button>
+            <button @click="unique4">方法四</button>
+            <button @click="unique5">方法五</button>
+            <button @click="unique6">方法六</button>
+        </p>
+        <p>
+            样例数据：1,4,2,3,2,4,5,6
+        </p>
+        <p>
+            输出结果为：{{result}}
+        </p>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data:{
+                arrData: '',
+                result: ''
+            },
+            methods:{
+                unique1(){
+                    //Chrome,Firfox,Opera，Safari，包括微软的Edge,都是支持的，唯独IE系列不支持
+                    let arr = this.arrData.split(',');
+                    var set = new Set(arr);
+                    //将set对象转化成数组，Array.from把类数组对象、可迭代对象转化为数组
+                    this.result = Array.from(set).join(',');  
+                },
+                unique2(){
+
+                },
+                unique3(){
+
+                },
+                unique4(){
+
+                },
+                unique5(){
+
+                },
+                unique6(){
+
+                },
+            }
+        })
+    </script>
+</body>
+</html>
