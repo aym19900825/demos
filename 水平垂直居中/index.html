@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平垂直居中</title>
+    <style>
+        .one{
+            width: 500px;
+            color: #fff;
+            background: red;
+            height: 32px;
+            line-height: 32px;
+        }
+
+
+        .two{
+            width: 1000px;
+            height: 500px;
+            background: blue;
+            position: relative;/*父元素的relative*/
+        }
+        .two div{
+            background: red;
+            width: 500px;
+            height: 50px; /*元素的高度*/
+            position: absolute;
+            top: 50%; /*元素的顶部边界离父元素的的位置是父元素高度的一半*/
+            margin-top: -25px;/*设置元素顶边负边距，大小为元素高度的一半*/
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        line-height垂直居中
+    </div>
+
+    <div class="two">
+        <div>
+            position + marignTop + top
+        </div>
+    </div>
+    
+</body>
+</html>
